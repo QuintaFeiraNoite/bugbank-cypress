@@ -1,21 +1,38 @@
-import users from '../fixtures/users.json'
+import register from '../pages/index.js';
+
 
 describe ('Register Functionality', () => {
-    it('should visit the register page', () => {
+    beforeEach(() => {
+        register.openPage();
+});
+
+    it('should register a new user successfully without balance', () => {
     //Arrange
-        cy.visit('https://bugbank.netlify.app/');
+        register.registerValidUserNoBalance();
     //Act
-
-        //Usuario sem saldo
-        cy.contains('button', 'Registrar').click();
-        cy.get('.card__register input[name="email"]').type(users[0].email, { force: true });
-        cy.get('[name="name"]').type(users[0].name, { force: true });
-        cy.get(':nth-child(4) > .style__ContainerFieldInput-sc-s3e9ea-0 > [name="password"]').type(users[0].password, { force: true });
-        cy.get('[name="passwordConfirmation"]').type(users[0].password, { force: true });
         cy.contains('button', 'Cadastrar').click({ force: true });
-
     //Assert
-
+        register.checkIfAccountWasCreated();
     });
-    
+
+    it('it should register a new user successfully with balance', () => {
+
+    //Arrange
+        register.registerValidUserBalance();
+    //Act
+        cy.contains('button', 'Cadastrar').click({ force: true });
+    //Assert
+        register.checkIfAccountWasCreated();
+    });
+
+    it('should not register a user with different passwords', () => {
+
+    //Arrange
+        register.registerInvalidUser();
+    //Act
+        cy.contains('button', 'Cadastrar').click({ force: true });
+    //Assert
+        register.checkIfErrorMessageIsDisplayed();
+    });
+
 });

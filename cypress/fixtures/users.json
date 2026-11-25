@@ -1,5 +1,5 @@
 [
-  { "email": "userA@example.com", "name": "User A", "password": "secret_sauce", "valid": true },
-  { "email": "userB@example.com", "name": "User B", "password": "secret_sauce", "valid": true },
-  { "email": "userC@example", "name": "User C", "password": "secret_sauce", "valid": false }
+  { "email": "userA@example.com", "name": "User A", "password": "5hXmDO3D1L", "confirmPassword": "5hXmDO3D1L", "valid": true },
+  { "email": "userB@example.com", "name": "User B", "password": "O1ceR7BM80", "confirmPassword": "O1ceR7BM80", "valid": true },
+  { "email": "userC@example.com", "name": "User C", "password": "da55A909Rk", "confirmPassword": "s0TOA19cnS", "valid": false }
 ]
