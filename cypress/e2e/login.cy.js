@@ -1,21 +1,17 @@
-import users from '../fixtures/users.json';
-import visit from '../pages/index.js';
+import access from '../pages/login/index.js';
 
 describe('Login Functionality', () => {
-
     beforeEach(() => {
-        visit.openPage();
+        access.saveDataToLocalStorage();
     });
 
     it('should visit the login page', () => {
-    //Arrange
+        // Arrange
 
-    //Act
-        cy.get(':nth-child(1) > [name="email"]').type(users[0].email);
-        cy.get('[class="style__ContainerButton-sc-1wsixal-0 otUnI button__child"]').type(users[0].password);
-        cy.contains('button', 'Acessar').click();
-    //Assert
-        
+        // Act
+        access.loginValidUser();
+        // Assert
+        cy.url().should('include', '/home');
+        cy.get('.home__ContainerOptions-sc-1auj767-11').should('be.visible');
     });
-  
 });

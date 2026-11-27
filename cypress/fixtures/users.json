@@ -1,5 +1,21 @@
-[
-  { "email": "userA@example.com", "name": "User A", "password": "5hXmDO3D1L", "confirmPassword": "5hXmDO3D1L", "valid": true },
-  { "email": "userB@example.com", "name": "User B", "password": "O1ceR7BM80", "confirmPassword": "O1ceR7BM80", "valid": true },
-  { "email": "userC@example.com", "name": "User C", "password": "da55A909Rk", "confirmPassword": "s0TOA19cnS", "valid": false }
-]
+{
+  "userA@example.com": {
+    "name": "User A",
+    "email": "userA@example.com",
+    "password": "5hXmDO3D1L",
+    "accountNumber": "001-1",
+    "balance": 1000,
+    "logged": false
+  },
+  "transaction:userA@example.com": [],
+
+  "userB@example.com": {
+    "name": "User B",
+    "email": "userB@example.com",
+    "password": "O1ceR7BM80",
+    "accountNumber": "002-1",
+    "balance": 0,
+    "logged": false
+  },
+  "transaction:userB@example.com": []
+}

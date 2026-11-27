@@ -1,4 +1,4 @@
-import register from '../pages/index.js';
+import register from '../pages/register/index.js';
 
 
 describe ('Register Functionality', () => {
@@ -22,6 +22,7 @@ describe ('Register Functionality', () => {
     //Act
         cy.contains('button', 'Cadastrar').click({ force: true });
     //Assert
+        register.checkifToggleButtonIsChecked();
         register.checkIfAccountWasCreated();
     });
 
