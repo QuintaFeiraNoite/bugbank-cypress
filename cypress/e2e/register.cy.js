@@ -1,36 +1,29 @@
 import register from '../pages/register/index.js';
 
-
 describe ('Register Functionality', () => {
     beforeEach(() => {
         register.openPage();
 });
 
+    //TC-001
     it('should register a new user successfully without balance', () => {
-    //Arrange
         register.registerValidUserNoBalance();
-    //Act
         cy.contains('button', 'Cadastrar').click({ force: true });
-    //Assert
+        //Assert
         register.checkIfAccountWasCreated();
     });
 
-    it('it should register a new user successfully with balance', () => {
-
-    //Arrange
+    //TC-002
+    it('should register a new user successfully with balance', () => {
         register.registerValidUserBalance();
-    //Act
         cy.contains('button', 'Cadastrar').click({ force: true });
     //Assert
-        register.checkifToggleButtonIsChecked();
         register.checkIfAccountWasCreated();
     });
 
+    //TC-003
     it('should not register a user with different passwords', () => {
-
-    //Arrange
         register.registerInvalidUser();
-    //Act
         cy.contains('button', 'Cadastrar').click({ force: true });
     //Assert
         register.checkIfErrorMessageIsDisplayed();
