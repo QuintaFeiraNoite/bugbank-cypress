@@ -26,7 +26,48 @@ class Commands {
         cy.get(el.btnToggle).click({ force: true });
     }
 
-    registerInvalidUser() {
+    registerInvalidEmail() {
+        cy.contains('button', 'Registrar').click();
+        cy.get(el.email).type('invalidemail@', { force: true });
+        cy.get(el.name).type(list[0].name, { force: true });
+        cy.get(el.password).type(list[0].password, { force: true });
+        cy.get(el.passwordConfirmation).type(list[0].password, { force: true });
+    }
+
+    registerWithoutName() {
+        cy.contains('button', 'Registrar').click();
+        cy.get(el.email).type(list[0].email, { force: true });
+        cy.get(el.password).type(list[0].password, { force: true });
+        cy.get(el.passwordConfirmation).type(list[0].password, { force: true });
+    }
+
+    registerWithoutEmail() {
+        cy.contains('button', 'Registrar').click();
+        cy.get(el.name).type('Invalid', { force: true });
+        cy.get(el.password).type('Invalid', { force: true });
+        cy.get(el.passwordConfirmation).type('Invalid', { force: true });
+    }
+
+    registerWithoutPassword() {
+        cy.contains('button', 'Registrar').click();
+        cy.get(el.email).type(list[0].email, { force: true });
+        cy.get(el.name).type(list[0].name, { force: true });
+        cy.get(el.passwordConfirmation).type(list[0].password, { force: true });
+    }
+
+    registerWithoutPasswordConfirmation() {
+        cy.contains('button', 'Registrar').click();
+        cy.get(el.email).type(list[0].email, { force: true });
+        cy.get(el.name).type(list[0].name, { force: true });
+        cy.get(el.password).type(list[0].password, { force: true });
+    }
+
+    registerWithoutAnyInformation() {
+        cy.contains('button', 'Registrar').click();
+        
+    }
+
+    registerPasswordMismatchs() {
         cy.contains('button', 'Registrar').click();
         cy.get(el.email).type('userwithinvalidpassword@user.com', { force: true });
         cy.get(el.name).type('Invalid', { force: true });
